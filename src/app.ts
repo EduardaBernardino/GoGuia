@@ -5,12 +5,14 @@ import StatusRoteiroRouter from "./infra/routes/status-roteiro.routes";
 import StatusReservaRouter from "./infra/routes/status-reserva.routes";
 import StatusPagamentoRouter from "./infra/routes/status-pagamento.routes";
 import TipoPagamentoRouter from "./infra/routes/tipo-pagamento-roteiro.routes";
+import PessoaRouter from "./infra/routes/pessoa.routes";
 
 
 const app = express();
 app.use(express.json());
 
 app.use("/cidade", CidadeRouter);
+app.use("/pessoa", PessoaRouter);
 app.use("/perfil", PerfilRouter);
 app.use("/status-roteiro", StatusRoteiroRouter);
 app.use("/status-reserva", StatusReservaRouter);
