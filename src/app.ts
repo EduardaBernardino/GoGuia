@@ -9,6 +9,7 @@ import PessoaRouter from "./infra/routes/pessoa.routes";
 import RotaRouter from "./infra/routes/rota.routes";
 import PontoRotaRouter from "./infra/routes/ponto-rota.routes";
 import RoteiroRouter from "./infra/routes/roteiro.routes";
+import ReservaRouter from "./infra/routes/reserva.routes";
 
 
 const app = express();
@@ -18,6 +19,7 @@ app.use("/cidade", CidadeRouter);
 app.use("/pessoa", PessoaRouter);
 app.use("/rota", RotaRouter);
 app.use("/roteiro", RoteiroRouter);
+app.use("/reserva", ReservaRouter);
 app.use("/perfil", PerfilRouter);
 app.use("/status-roteiro", StatusRoteiroRouter);
 app.use("/status-reserva", StatusReservaRouter);
