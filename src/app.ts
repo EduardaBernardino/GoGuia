@@ -7,6 +7,7 @@ import StatusPagamentoRouter from "./infra/routes/status-pagamento.routes";
 import TipoPagamentoRouter from "./infra/routes/tipo-pagamento-roteiro.routes";
 import PessoaRouter from "./infra/routes/pessoa.routes";
 import RotaRouter from "./infra/routes/rota.routes";
+import PontoRotaRouter from "./infra/routes/ponto-rota.routes";
 
 
 const app = express();
@@ -20,6 +21,7 @@ app.use("/status-roteiro", StatusRoteiroRouter);
 app.use("/status-reserva", StatusReservaRouter);
 app.use("/status-pagamento", StatusPagamentoRouter);
 app.use("/tipo-pagamento", TipoPagamentoRouter);
+app.use("/ponto-rota", PontoRotaRouter);
 
 
 export default app;
