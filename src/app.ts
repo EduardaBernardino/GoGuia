@@ -1,5 +1,5 @@
 import express from "express";
-import CidadeRouter from "./infra/routes/cidade.routes";
+import PagamentoRouter from "./infra/routes/pagamento.routes";
 import PerfilRouter from "./infra/routes/perfil.routes";
 import StatusRoteiroRouter from "./infra/routes/status-roteiro.routes";
 import StatusReservaRouter from "./infra/routes/status-reserva.routes";
@@ -15,7 +15,7 @@ import ReservaRouter from "./infra/routes/reserva.routes";
 const app = express();
 app.use(express.json());
 
-app.use("/cidade", CidadeRouter);
+app.use("/pagamento", PagamentoRouter);
 app.use("/pessoa", PessoaRouter);
 app.use("/rota", RotaRouter);
 app.use("/roteiro", RoteiroRouter);
