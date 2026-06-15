@@ -142,3 +142,6 @@ vite.config.ts.timestamp-*
 *.db
 drizzle/*
 !drizzle/.gitkeep
+
+# Arquivos temporarios
+src/domain/arquivo/temp/*

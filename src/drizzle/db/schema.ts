@@ -1,6 +1,7 @@
 import { integer, sqliteTable, text, real } from "drizzle-orm/sqlite-core";
 import { relations } from "drizzle-orm";
 import { sql } from "drizzle-orm";
+import { boolean } from "zod";
 
 
 
@@ -89,4 +90,12 @@ export const pagamento = sqliteTable("pagamento", {
   codReserva: integer("cod_reserva").references(() => reserva.id).notNull(),
   codStatusPagamento: integer("cod_status_pagamento").references(() => statusPagamento.id).notNull(),
   codTipoPagamento: integer("cod_tipo_pagamento").references(() => tipoPagamento.id).notNull(),
+});
+
+export const arquivo = sqliteTable("arquivo", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  nomeArquivo: text("nom_arq"),
+  localArquivo: text("local_arq"),
+  arquivoAtivo: integer("arquivo_ativo", { mode: 'boolean' }),
+  codRoteiro: integer("cod_roteiro").references(() => roteiro.id).notNull(),
 });
