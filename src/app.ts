@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 
 app.use("/pagamento", authMiddleware, PagamentoRouter);
-app.use("/pessoa", authMiddleware, PessoaRouter);
+app.use("/pessoa", PessoaRouter);
 app.use("/rota", authMiddleware, RotaRouter);
 app.use("/roteiro", authMiddleware, RoteiroRouter);
 app.use("/reserva", authMiddleware, ReservaRouter);
