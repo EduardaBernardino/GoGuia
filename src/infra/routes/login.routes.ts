@@ -23,7 +23,7 @@ AutenticacaoRoute.post("/login", validate(createLoginSchema), async (req, res) =
 
     const token = jwt.sign(
         { id: usuario?.data.id, email: usuario?.data.email, }, process.env.JWT_SECRET as string,
-        { expiresIn: "30s", }
+        { expiresIn: "12h", }
     );
 
     return res.json(PessoaPresenter.resposePresenter(usuario, token));

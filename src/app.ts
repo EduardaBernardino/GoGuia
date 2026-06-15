@@ -12,6 +12,7 @@ import RoteiroRouter from "./infra/routes/roteiro.routes";
 import ReservaRouter from "./infra/routes/reserva.routes";
 import { authMiddleware } from "./core/middlewares/auth.middleware";
 import AutenticacaoRoute from "./infra/routes/login.routes";
+import ArquivoRouter from "./infra/routes/arquivo.routes";
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use("/status-reserva", authMiddleware, StatusReservaRouter);
 app.use("/status-pagamento", authMiddleware, StatusPagamentoRouter);
 app.use("/tipo-pagamento", authMiddleware, TipoPagamentoRouter);
 app.use("/ponto-rota", authMiddleware, PontoRotaRouter);
+app.use("/arquivo", authMiddleware, ArquivoRouter);
 app.use("/autenticacao", AutenticacaoRoute);
 
 

@@ -1,4 +1,5 @@
 import app from "../../app";
+import { minioClient } from "../minio/minio.client";
 import { Conexao } from "./conexao";
 
 const PORT = 3000;
@@ -17,5 +18,16 @@ export const closeServer = () => {
         process.exit(0);
     });
 };
+
+const verificacaoMinio = async () => {
+    try {
+        await minioClient.bucketExists(process.env.BUCKET_NAME || "goguia");
+        console.log("\n🌐 MinIO está rodando");
+    } catch (error) {
+        console.log("\n ❌ MinIO não está disponível ou não está rodando");
+    }
+}
+
+verificacaoMinio()
 
 export const db = Conexao.conexao();
