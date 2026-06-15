@@ -29,7 +29,15 @@ npx drizzle-kit generate
 npx drizzle-kit migrate
 ```
 
-## 4. Executar o projeto
+## 4. Executar as seeds
+
+Após criar o banco, rode as seeds com o comando abaixo:
+
+```bash
+npm run seed
+```
+
+## 5. Executar o projeto
 
 Por fim, inicie a aplicação com:
 

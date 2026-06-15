@@ -1,5 +1,6 @@
 import { z } from "zod";
 
+// Não tem senha aqui pois ela vai estar no zod relacionado a esquesci a senha
 export const updatePessoaSchema = z.object({
   nome: z.string().min(3, "Nome muito curto").optional(),
   email: z.email({ message: "Endereço de e-mail inválido" }).optional(),

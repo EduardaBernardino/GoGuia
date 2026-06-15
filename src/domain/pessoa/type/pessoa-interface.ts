@@ -4,6 +4,7 @@ export interface PessoaProps {
     id?: number,
     nome: string,
     email: string,
+    senha: string,
     numTelefone: string,
     codPerfil: number
 }

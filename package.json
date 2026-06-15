@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx tsx watch src/core/config/server.ts",
-    "seed" : "tsx src/drizzle/seed.ts"
+    "seed": "tsx src/drizzle/seed.ts"
   },
   "repository": {
     "type": "git",

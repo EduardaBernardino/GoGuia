@@ -2,10 +2,11 @@ import { Pessoa } from "../../domain/pessoa/type/pessoa-interface";
 
 
 export class PessoaPresenter {
-  static resposePresenter = (arquivo: Pessoa) => {
-    const { ...baseProps } = arquivo.data;
+  static resposePresenter = (arquivo: Pessoa, tokenVerifc?: string) => {
+    const { senha ,...baseProps } = arquivo.data;
     return {
-      ...baseProps
+      ...baseProps,
+      token: tokenVerifc
     };
   };
 

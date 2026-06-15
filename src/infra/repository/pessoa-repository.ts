@@ -4,11 +4,13 @@ import { pessoa } from "../../drizzle/db/schema";
 import { db } from "../../core/config/server";
 import { eq } from "drizzle-orm";
 import { PessoaMapper } from "../mappers/pessoa-mapper";
+import * as bcrypt from 'bcrypt';
 
 export class PessoaRepository {
 
     async create(pessoaData: Pessoa): Promise<Pessoa | null> {
         const { id, ...props } = pessoaData.data
+        props.senha = await bcrypt.hash(props.senha, 10)
 
         const result = await db.insert(pessoa).values(props);
 
@@ -32,6 +34,19 @@ export class PessoaRepository {
         })
 
         if (!result) return null;
+        return PessoaMapper.toDomain(result);
+    }
+
+    async findLogin(email: string, senha: string): Promise<Pessoa | null> {
+        const result = await db.query.pessoa.findFirst({
+            where: eq(pessoa.email, email),
+        })
+
+        if (!result) return null;
+        const senhaValida = await bcrypt.compare(senha, result.senha);
+
+        if (!senhaValida) return null
+        
         return PessoaMapper.toDomain(result);
     }
 

@@ -14,6 +14,7 @@ export const pessoa = sqliteTable("pessoa", {
   id: integer("id").primaryKey({ autoIncrement: true }),
   nome: text("nome").notNull(),
   email: text("email").notNull().unique(),
+  senha: text("senha").notNull(),
   numTelefone: text("num_telefone"),
   codPerfil: integer("cod_perfil").references(() => perfil.id).notNull(),
 });

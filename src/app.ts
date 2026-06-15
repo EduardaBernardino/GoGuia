@@ -10,22 +10,25 @@ import RotaRouter from "./infra/routes/rota.routes";
 import PontoRotaRouter from "./infra/routes/ponto-rota.routes";
 import RoteiroRouter from "./infra/routes/roteiro.routes";
 import ReservaRouter from "./infra/routes/reserva.routes";
+import { authMiddleware } from "./core/middlewares/auth.middleware";
+import AutenticacaoRoute from "./infra/routes/login.routes";
 
 
 const app = express();
 app.use(express.json());
 
-app.use("/pagamento", PagamentoRouter);
-app.use("/pessoa", PessoaRouter);
-app.use("/rota", RotaRouter);
-app.use("/roteiro", RoteiroRouter);
-app.use("/reserva", ReservaRouter);
-app.use("/perfil", PerfilRouter);
-app.use("/status-roteiro", StatusRoteiroRouter);
-app.use("/status-reserva", StatusReservaRouter);
-app.use("/status-pagamento", StatusPagamentoRouter);
-app.use("/tipo-pagamento", TipoPagamentoRouter);
-app.use("/ponto-rota", PontoRotaRouter);
+app.use("/pagamento", authMiddleware, PagamentoRouter);
+app.use("/pessoa", authMiddleware, PessoaRouter);
+app.use("/rota", authMiddleware, RotaRouter);
+app.use("/roteiro", authMiddleware, RoteiroRouter);
+app.use("/reserva", authMiddleware, ReservaRouter);
+app.use("/perfil", authMiddleware, PerfilRouter);
+app.use("/status-roteiro", authMiddleware, StatusRoteiroRouter);
+app.use("/status-reserva", authMiddleware, StatusReservaRouter);
+app.use("/status-pagamento", authMiddleware, StatusPagamentoRouter);
+app.use("/tipo-pagamento", authMiddleware, TipoPagamentoRouter);
+app.use("/ponto-rota", authMiddleware, PontoRotaRouter);
+app.use("/autenticacao", AutenticacaoRoute);
 
 
 export default app;
