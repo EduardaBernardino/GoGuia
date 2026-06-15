@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx tsx watch src/core/config/server.ts"
+    "dev": "npx tsx watch src/core/config/server.ts",
+    "seed" : "tsx src/drizzle/seed.ts"
   },
   "repository": {
     "type": "git",
@@ -19,19 +20,23 @@
   },
   "homepage": "https://github.com/Gabriel-Santos-S/Trabalho-noticias#readme",
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/better-sqlite3": "^7.6.13",
     "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.5.2",
     "drizzle-kit": "^0.31.10",
     "tsx": "^4.21.0"
   },
   "dependencies": {
     "@libsql/client": "^0.17.2",
+    "bcrypt": "^6.0.0",
     "better-sqlite3": "^12.8.0",
     "dotenv": "^17.4.2",
     "drizzle-orm": "^0.45.2",
     "express": "^5.2.1",
     "express-list-endpoints": "^7.1.1",
+    "jsonwebtoken": "^9.0.3",
     "zod": "^4.4.3"
   }
 }
