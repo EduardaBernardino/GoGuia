@@ -29,7 +29,15 @@ npx drizzle-kit generate
 npx drizzle-kit migrate
 ```
 
-## 4. Executar as seeds
+## 4. Rodar Minio 
+
+Abra o seu docker e suba o container do minio
+
+```bash
+docker compose up -d
+```
+
+## 5. Executar as seeds
 
 Após criar o banco, rode as seeds com o comando abaixo:
 
@@ -37,7 +45,7 @@ Após criar o banco, rode as seeds com o comando abaixo:
 npm run seed
 ```
 
-## 5. Executar o projeto
+## 6. Executar o projeto
 
 Por fim, inicie a aplicação com:
 

@@ -14,6 +14,7 @@ import StatusPagamentoRouter from "./infra/routes/status-pagamento.routes";
 import StatusReservaRouter from "./infra/routes/status-reserva.routes";
 import StatusRoteiroRouter from "./infra/routes/status-roteiro.routes";
 import TipoPagamentoRouter from "./infra/routes/tipo-pagamento-roteiro.routes";
+import FavoritoRouter from "./infra/routes/favorito.routes";
 
 
 const app = express();
@@ -43,6 +44,7 @@ app.use("/status-reserva", authMiddleware, StatusReservaRouter);
 app.use("/status-pagamento", authMiddleware, StatusPagamentoRouter);
 app.use("/tipo-pagamento", authMiddleware, TipoPagamentoRouter);
 app.use("/ponto-rota", authMiddleware, PontoRotaRouter);
+app.use("/favorito", authMiddleware, FavoritoRouter);
 app.use("/arquivo", authMiddleware, ArquivoRouter);
 app.use("/autenticacao", AutenticacaoRoute);
 app.use("/osrm", OSRMRouter);
