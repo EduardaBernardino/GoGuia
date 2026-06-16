@@ -22,6 +22,18 @@ export class RoteiroController {
     res.status(201).json(RoteiroPresenter.listaResposePresenter(roteiros));
   };
 
+  async getByIdRoteiro(req: Request, res: Response) {
+    const roteiro = await this.roteiroRepository.findById(Number(req.params.id))
+
+    if (!roteiro) {
+      return res.status(404).json({
+        message: "Não foi achar roteiro"
+      });
+    }
+
+    res.status(201).json(RoteiroPresenter.resposePresenter(roteiro));
+  };
+
   async createRoteiro(
     req: Request<{}, {}, CreateRoteiroDTO>,
     res: Response

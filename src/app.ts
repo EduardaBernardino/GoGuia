@@ -1,18 +1,19 @@
 import express from "express";
+import { authMiddleware } from "./core/middlewares/auth.middleware";
+import ArquivoRouter from "./infra/routes/arquivo.routes";
+import AutenticacaoRoute from "./infra/routes/login.routes";
+import OSRMRouter from "./infra/routes/OSRMRouter.routes";
 import PagamentoRouter from "./infra/routes/pagamento.routes";
 import PerfilRouter from "./infra/routes/perfil.routes";
-import StatusRoteiroRouter from "./infra/routes/status-roteiro.routes";
-import StatusReservaRouter from "./infra/routes/status-reserva.routes";
-import StatusPagamentoRouter from "./infra/routes/status-pagamento.routes";
-import TipoPagamentoRouter from "./infra/routes/tipo-pagamento-roteiro.routes";
 import PessoaRouter from "./infra/routes/pessoa.routes";
-import RotaRouter from "./infra/routes/rota.routes";
 import PontoRotaRouter from "./infra/routes/ponto-rota.routes";
-import RoteiroRouter from "./infra/routes/roteiro.routes";
 import ReservaRouter from "./infra/routes/reserva.routes";
-import { authMiddleware } from "./core/middlewares/auth.middleware";
-import AutenticacaoRoute from "./infra/routes/login.routes";
-import ArquivoRouter from "./infra/routes/arquivo.routes";
+import RotaRouter from "./infra/routes/rota.routes";
+import RoteiroRouter from "./infra/routes/roteiro.routes";
+import StatusPagamentoRouter from "./infra/routes/status-pagamento.routes";
+import StatusReservaRouter from "./infra/routes/status-reserva.routes";
+import StatusRoteiroRouter from "./infra/routes/status-roteiro.routes";
+import TipoPagamentoRouter from "./infra/routes/tipo-pagamento-roteiro.routes";
 
 
 const app = express();
@@ -44,6 +45,7 @@ app.use("/tipo-pagamento", authMiddleware, TipoPagamentoRouter);
 app.use("/ponto-rota", authMiddleware, PontoRotaRouter);
 app.use("/arquivo", authMiddleware, ArquivoRouter);
 app.use("/autenticacao", AutenticacaoRoute);
+app.use("/osrm", OSRMRouter);
 
 
 export default app;
