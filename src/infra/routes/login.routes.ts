@@ -15,7 +15,7 @@ AutenticacaoRoute.post("/login", validate(createLoginSchema), async (req, res) =
     const usuario = await pessoa.findLogin(email, senha)
 
     if (!usuario) {
-        return res.status(401).json({
+        return res.status(404).json({
             message: "Credenciais inválidas",
         });
     }
@@ -23,7 +23,7 @@ AutenticacaoRoute.post("/login", validate(createLoginSchema), async (req, res) =
 
     const token = jwt.sign(
         { id: usuario?.data.id, email: usuario?.data.email, }, process.env.JWT_SECRET as string,
-        { expiresIn: "12h", }
+        { expiresIn: "8h", }
     );
 
     return res.json(PessoaPresenter.resposePresenter(usuario, token));
