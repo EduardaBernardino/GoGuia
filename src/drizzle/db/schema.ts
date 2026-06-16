@@ -99,3 +99,9 @@ export const arquivo = sqliteTable("arquivo", {
   arquivoAtivo: integer("arquivo_ativo", { mode: 'boolean' }),
   codRoteiro: integer("cod_roteiro").references(() => roteiro.id).notNull(),
 });
+
+export const favorito = sqliteTable("favorito", {
+  id: integer("id").primaryKey({ autoIncrement: true }),
+  codRoteiro: integer("cod_roteiro").references(() => roteiro.id).notNull(),
+  codPessoa: integer("cod_pessoa").references(() => pessoa.id).notNull(),
+});
