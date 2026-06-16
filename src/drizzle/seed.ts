@@ -1,5 +1,5 @@
 import { closeServer, db } from '../core/config/server';
-import { perfil, statusPagamento, statusReserva, statusRoteiro, tipoPagamento } from './db/schema';
+import { perfil, rota, statusPagamento, statusReserva, statusRoteiro, tipoPagamento } from './db/schema';
 
 async function seed() {
     //====================
@@ -71,6 +71,19 @@ async function seed() {
     await db.insert(tipoPagamento).values(tipoPagamentoData);
 
     console.log('✅ Seed tipo pagamento completed!\n');
+
+    //====================
+    // Rota
+    //====================
+    const rotaData = [
+        { tempo: "12", distancia: 14 },
+        { tempo: "13", distancia: 15 },
+    ];
+
+    console.log('🌱 Seeding Rota...');
+    await db.insert(rota).values(rotaData);
+
+    console.log('✅ Seed Rota completed!\n');
 
     closeServer()
 }
